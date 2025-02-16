@@ -1,0 +1,61 @@
+{
+  "skills": [
+    {
+      "id": "1",
+      "src": "./img/product-chain-1.png",
+      "title": "Languages",
+      "description": "Proficient in Java (Spring Boot), Python, JavaScript (Next.js), SQL, C/C++, and C#."
+    },
+    {
+      "id": "2",
+      "src": "./img/tag-1.png",
+      "title": "Frameworks & Libraries",
+      "description": "Experienced with Next.js, Spring Boot, Django, NumPy, and Pandas."
+    },
+    {
+      "id": "3",
+      "src": "./img/feather-pen-2.png",
+      "title": "Tools & Technology",
+      "description": "Skilled in Git, SQL, RESTful APIs, Gradle, MySQL, and AWS."
+    },
+    {
+      "id": "4",
+      "src": "./img/feather-pen-1.png",
+      "title": "Webflow Development",
+      "description": "Skilled in end-to-end development with expertise in debugging, testing, frontend-backend integration and efficient collaboration using Git."
+    }
+  ],
+  "portfolio": [
+    {
+      "id": "1",
+      "src": "./img/PrjoctPlaceholder.png",
+      "title": "AgroPrice (March 2024)",
+      "description": "Developed a predictive model using Python and Django to forecast agricultural prices. Utilized techniques like one-hot encoding, Ridge regression, and normalization to improve accuracy.",
+      "link": "View In Github"
+    },
+    {
+      "id": "2",
+      "src": "./img/ProjectPortfolio2.png",
+      "title": "MothersKitchen",
+      "description": "Built a food ordering platform using Python, Django, and JavaScript, with a focus on backend development, API integration, and secure user authentication.",
+      "link": "View In Github"
+    },
+    {
+      "id": "3",
+      "src": "./img/PortfolioProject.png",
+      "title": "Portfolio",
+      "description": "Created a responsive portfolio website using React, showcasing projects and skills with optimized performance and seamless user experience.",
+      "link": "View In Github"
+    }
+  ],
+  "data": [
+    {
+      "id": 1,
+      "title": "Java Software Developer",
+      "description": "Working with an Asset Management System using the Spring Boot framework and NextJS",
+      "company": "Nuptse Technology (Anamnagar, Kathmandu) ",
+      "certificate": "Java Software Developer internship Certificate"
+    }
+   
+  ]
+}
