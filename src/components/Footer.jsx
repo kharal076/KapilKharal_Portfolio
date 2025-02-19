@@ -17,7 +17,7 @@ function Footer() {
                 smooth={true}
                 offset={-70}
                 duration={500}
-                to="heroSection"
+                to="Home"
                 className="text-md"
               >
                 Home
@@ -30,7 +30,7 @@ function Footer() {
                 smooth={true}
                 offset={-70}
                 duration={500}
-                to="MyPortfolio"
+                to="Skills"
                 className="text-md"
               >
                 Portfolio
@@ -69,10 +69,10 @@ function Footer() {
                 smooth={true}
                 offset={-70}
                 duration={500}
-                to="testimonial"
+                to="Experience"
                 className="text-md"
               >
-                Testimonials
+                Experience
               </Link>
             </li>
           </ul>

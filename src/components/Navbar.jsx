@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-scroll";
 
-function Navbar() {
+export default function Navbar() {
   const [navActive, setNavActive] = useState(false);
+  const [darkMode, setDarkMode] = useState(
+    localStorage.getItem("theme") === "dark"
+  );
 
   const toggleNav = () => {
     setNavActive(!navActive);
@@ -31,24 +34,36 @@ function Navbar() {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+ 
   
+    // Apply dark mode on load & toggle
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  }, [darkMode]);
 
   return (
     <nav className={`navbar ${navActive ? "active" : ""}`}>
       <div>
         <img src="./img/portfolio-logo.png" alt="Logo" />
       </div>
-      <a
-        className={`nav__hamburger ${navActive ? "active" : ""}`}
-        onClick={toggleNav}
-      >
+      <button className="nav__hamburger" onClick={toggleNav}>
         <span className="nav__hamburger__line"></span>
         <span className="nav__hamburger__line"></span>
         <span className="nav__hamburger__line"></span>
-      </a>
+      </button>
+
       <div className={`navbar--items ${navActive ? "active" : ""}`}>
         <ul>
-          <li>
+        {["Home", "Skills", "AboutMe", "Projects", "Experience","Contact"].map(
+            (section) => (
+          <li key={section}>
             <Link
               
               onClick={closeMenu}
@@ -57,84 +72,27 @@ function Navbar() {
               smooth={true}
               offset={-70}
               duration={500}
-              to="heroSection"
+              to={section}
               className="navbar--content"
             >
-              Home
+              {section.replace(/([A-Z])/g, " $1").trim()}
+             
             </Link>
           </li>
-          <li> <Link
-              onClick={closeMenu}
-              activeClass="navbar--active-content"
-              spy={true}
-              smooth={true}
-              offset={-70}
-              duration={500}
-              to="Skills"
-              className="navbar--content"
-            >
-              Skills
-            </Link></li>
-          <li>
-            <Link
-              onClick={closeMenu}
-              activeClass="navbar--active-content"
-              spy={true}
-              smooth={true}
-              offset={-70}
-              duration={500}
-              to="AboutMe"
-              className="navbar--content"
-            >
-              About Me
-            </Link>
-          </li>
-
-          <li>
-            <Link
-              onClick={closeMenu}
-              activeClass="navbar--active-content"
-              spy={true}
-              smooth={true}
-              offset={-70}
-              duration={500}
-              to="Projects"
-              className="navbar--content"
-            >
-              Projects
-            </Link>
-          </li>
-          
-          <li>
-            <Link
-              onClick={closeMenu}
-              activeClass="navbar--active-content"
-              spy={true}
-              smooth={true}
-              offset={-70}
-              duration={500}
-              to="Experience"
-              className="navbar--content"
-            >
-              Experience
-            </Link>
-          </li>
+            )
+        )}
         </ul>
       </div>
-      <Link
-        onClick={closeMenu}
-        activeClass="navbar--active-content"
-        spy={true}
-        smooth={true}
-        offset={-70}
-        duration={500}
-        to="Contact"
-        className="btn btn-outline-primary"
+
+      {/* Dark Mode Toggle Button */}
+      <button
+        onClick={() => setDarkMode(!darkMode)}
+        className="p-2 bg-gray-200 dark:bg-gray-700 rounded transition-all"
       >
-        Contact Me
-      </Link>
+        {darkMode ? "☀️" : "🌙"}
+      </button>
+  
     </nav>
-  );
+      );
 }
 
-export default Navbar;
